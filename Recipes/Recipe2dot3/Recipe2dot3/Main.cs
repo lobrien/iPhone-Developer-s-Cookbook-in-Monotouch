@@ -34,5 +34,10 @@ namespace Recipe2dot3
 		public override void OnActivated (UIApplication application)
 		{
 		}
+		
+		public override void WillTerminate (UIApplication application)
+		{
+			myController.UpdateDefaults();
+		}
 	}
 }
