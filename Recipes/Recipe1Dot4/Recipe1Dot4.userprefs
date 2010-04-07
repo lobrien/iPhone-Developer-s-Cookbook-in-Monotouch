@@ -1,0 +1,25 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" ctype="Workspace" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Recipe1Dot4/HelloController.cs" ctype="Workbench">
+    <Files>
+      <File FileName="Recipe1Dot4/Main.cs" Line="27" Column="32" />
+      <File FileName="Recipe1Dot4/HelloController.cs" Line="31" Column="49" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="Recipe1Dot4" expanded="True" selected="True" />
+        </State>
+      </Pad>
+      <Pad Id="ClassPad">
+        <State expanded="True" selected="True" />
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+      <Pad Id="MonoDevelop.NUnit.TestPad">
+        <State selected="True" />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+</Properties>

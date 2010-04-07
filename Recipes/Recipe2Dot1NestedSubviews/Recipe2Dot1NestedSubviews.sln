@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Recipe2Dot1NestedSubviews", "Recipe2Dot1NestedSubviews\Recipe2Dot1NestedSubviews.csproj", "{C0138729-D355-421E-B413-40CD9ACC5A9C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|iPhoneSimulator = Debug|iPhoneSimulator
+		Release|iPhoneSimulator = Release|iPhoneSimulator
+		Debug|iPhone = Debug|iPhone
+		Release|iPhone = Release|iPhone
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C0138729-D355-421E-B413-40CD9ACC5A9C}.Debug|iPhone.ActiveCfg = Debug|iPhone
+		{C0138729-D355-421E-B413-40CD9ACC5A9C}.Debug|iPhone.Build.0 = Debug|iPhone
+		{C0138729-D355-421E-B413-40CD9ACC5A9C}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
+		{C0138729-D355-421E-B413-40CD9ACC5A9C}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
+		{C0138729-D355-421E-B413-40CD9ACC5A9C}.Release|iPhone.ActiveCfg = Release|iPhone
+		{C0138729-D355-421E-B413-40CD9ACC5A9C}.Release|iPhone.Build.0 = Release|iPhone
+		{C0138729-D355-421E-B413-40CD9ACC5A9C}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
+		{C0138729-D355-421E-B413-40CD9ACC5A9C}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Recipe2Dot1NestedSubviews\Recipe2Dot1NestedSubviews.csproj
+	EndGlobalSection
+EndGlobal

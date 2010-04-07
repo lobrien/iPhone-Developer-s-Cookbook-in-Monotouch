@@ -1,0 +1,28 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" ctype="Workspace" />
+  <MonoDevelop.Ide.DebuggingService>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Recipe2Dot1NestedSubviews/MyViewController.cs" ctype="Workbench">
+    <Files>
+      <File FileName="Recipe2Dot1NestedSubviews/Main.cs" Line="1" Column="1" />
+      <File FileName="Recipe2Dot1NestedSubviews/NestedSubview.cs" Line="1" Column="1" />
+      <File FileName="Recipe2Dot1NestedSubviews/MainWindow.xib.designer.cs" Line="1" Column="1" />
+      <File FileName="Recipe2Dot1NestedSubviews/MyViewController.cs" Line="11" Column="2" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="Recipe2Dot1NestedSubviews" expanded="True">
+            <Node name="References" expanded="True" />
+            <Node name="MainWindow.xib" expanded="True" />
+            <Node name="MyViewController.cs" selected="True" />
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="ClassPad">
+        <State expanded="True" selected="True" />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+</Properties>
