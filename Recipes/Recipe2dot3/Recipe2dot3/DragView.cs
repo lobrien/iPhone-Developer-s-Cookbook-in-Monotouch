@@ -18,6 +18,11 @@ namespace Recipe2dot3
 			BackgroundColor = UIColor.Clear;
 		}
 		
+		public String WhichFlower {
+			get;
+			set;
+		}
+		
 
 		//Note the touch point and bring the touched view to the front
 		public override void TouchesBegan (NSSet touches, UIEvent evt)
