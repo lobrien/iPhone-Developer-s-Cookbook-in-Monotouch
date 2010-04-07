@@ -1,0 +1,1 @@
+This is a port of some recipes from Erica Sadun's "The iPhone Developer's Cookbook" (v 2009) to MonoTouch. 
