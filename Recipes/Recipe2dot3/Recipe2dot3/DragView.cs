@@ -9,21 +9,17 @@ namespace Recipe2dot3
 {
 
 	[MonoTouch.Foundation.Register("DragView")]
-	public class DragView : UIView
+	public class DragView : UIImageView
 	{
 		PointF startLocation;
-		UIImage image;
 		
 		public DragView ()
 		{
-			this.BackgroundColor = UIColor.Clear;
+			BackgroundColor = UIColor.Clear;
 		}
 		
-		public UIImage Image {
-			get { return image; }
-			set { image = value; }
-		}
-		
+
+		//Note the touch point and bring the touched view to the front
 		public override void TouchesBegan (NSSet touches, UIEvent evt)
 		{
 			var touch = (UITouch) touches.AnyObject;
@@ -36,9 +32,9 @@ namespace Recipe2dot3
 			}
 		}
 		
+		//As the user drags, move the flower with the brush
 		public override void TouchesMoved (NSSet touches, UIEvent evt)
 		{
-			System.Console.Write("T");
 			var touch = (UITouch) touches.AnyObject;
 			if(touch != null)
 			{
@@ -56,7 +52,6 @@ namespace Recipe2dot3
 		const float SIDELENGTH = 110.0f;
 		public override void Draw (RectangleF rect)
 		{
-			//System.Console.WriteLine("Draw()");
 			var bounds = new RectangleF(0.0f, 0.0f, SIDELENGTH, SIDELENGTH);
 			var context = UIGraphics.GetCurrentContext();
 			var path = new CGPath();
@@ -76,9 +71,6 @@ namespace Recipe2dot3
 		public override bool PointInside (PointF point, UIEvent uievent)
 		{
 			System.Console.WriteLine("PointInside({0}, {1})", point.X, point.Y);
-			//System.Console.WriteLine("My start Location is {0}, {1}", this.startLocation.X, this.startLocation.Y);
-			//System.Console.WriteLine("My bounds are {0},{1} - {2}, {3}", Bounds.Left, Bounds.Top, Bounds.Right, Bounds.Bottom);
-			//System.Console.WriteLine("My frame is {0}, {1} - {2}, {3}", Frame.Left, Frame.Top, Frame.Right, Frame.Bottom);
 			var HALFSIDE = SIDELENGTH / 2.0f;
 			
 			//Normalize with centered origin
@@ -99,7 +91,6 @@ namespace Recipe2dot3
 				return true;
 			else
 				return false;
-			
 		}
 
 	}

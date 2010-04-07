@@ -7,16 +7,17 @@ using MonoTouch.UIKit;
 namespace Recipe2dot3
 {
 
-	[MonoTouch.Foundation.Register("HelloController")]
-	public class HelloController : UIViewController
+	[MonoTouch.Foundation.Register("DragViewController")]
+	public class DragViewController : UIViewController
 	{
 		UIView contentView;
-		const int MAXFLOWERS = 1;
+		const int MAXFLOWERS = 10;
+		
 		Random rand = new Random();
-		String[] flowerNames = {"blueFlower.jpg", "pinkFlower.jpg", "orangeFlower.png"};
 		
+		String[] flowerNames = {"blueFlower.png", "pinkFlower.png", "orangeFlower.png"};
 		
-		public HelloController (IntPtr hnd) : base(hnd)
+		public DragViewController (IntPtr hnd) : base(hnd)
 		{
 		}
 		
@@ -39,7 +40,6 @@ namespace Recipe2dot3
 				var dragRect = new RectangleF(0.0f, 0.0f, 64.0f, 64.0f);
 				dragRect.Location = RandomPoint();
 				var dragger = new DragView();
-				dragger.BackgroundColor = UIColor.Black;
 				dragger.SetNeedsDisplay();
 				dragger.Frame = dragRect;
 				dragger.UserInteractionEnabled = true;
