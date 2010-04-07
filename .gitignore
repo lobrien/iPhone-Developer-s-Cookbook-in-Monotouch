@@ -1,0 +1,7 @@
+*.userprefs
+*.pidb
+*.log
+*.plist
+*/Debug/*
+*/bin/*
+*userprefs
