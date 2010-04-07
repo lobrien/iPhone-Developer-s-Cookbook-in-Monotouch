@@ -15,22 +15,31 @@ namespace Recipe2dot3 {
 	[MonoTouch.Foundation.Register("AppDelegate")]
 	public partial class AppDelegate {
 		
+		private MonoTouch.UIKit.UIWindow __mt_window;
+		
+		private DragViewController __mt_myController;
+		
+		#pragma warning disable 0169
 		[MonoTouch.Foundation.Connect("window")]
 		private MonoTouch.UIKit.UIWindow window {
 			get {
-				return ((MonoTouch.UIKit.UIWindow)(this.GetNativeField("window")));
+				this.__mt_window = ((MonoTouch.UIKit.UIWindow)(this.GetNativeField("window")));
+				return this.__mt_window;
 			}
 			set {
+				this.__mt_window = value;
 				this.SetNativeField("window", value);
 			}
 		}
 		
 		[MonoTouch.Foundation.Connect("myController")]
-		private HelloController myController {
+		private DragViewController myController {
 			get {
-				return ((HelloController)(this.GetNativeField("myController")));
+				this.__mt_myController = ((DragViewController)(this.GetNativeField("myController")));
+				return this.__mt_myController;
 			}
 			set {
+				this.__mt_myController = value;
 				this.SetNativeField("myController", value);
 			}
 		}

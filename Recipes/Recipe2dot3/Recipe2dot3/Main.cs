@@ -1,9 +1,9 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
+using System.Drawing;
 
 namespace Recipe2dot3
 {
@@ -15,13 +15,14 @@ namespace Recipe2dot3
 		}
 	}
 
-	// The name AppDelegate is referenced in the MainWindow.xib file.
 	public partial class AppDelegate : UIApplicationDelegate
 	{
-		// This method is invoked when the application has loaded its UI and its ready to run
+		UIView contentView;
+		
 		public override bool FinishedLaunching (UIApplication app, NSDictionary options)
 		{
-			// If you have defined a view, add it here:
+			contentView = myController.View;
+			contentView.BackgroundColor = UIColor.Black;
 			window.AddSubview (myController.View);
 			
 			window.MakeKeyAndVisible ();
