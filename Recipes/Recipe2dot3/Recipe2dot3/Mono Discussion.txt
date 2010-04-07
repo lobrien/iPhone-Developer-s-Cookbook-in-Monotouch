@@ -1,0 +1,5 @@
+A potentially interesting thing here is the use of XML serialization in DragViewController.UpdateDefaults()
+to store the preferences. When I tried to use the .NET List<> objects, I was told that 
+they could not be implicitly converted to an NSObject. Since XML serialization
+in .NET is very straightforward (albeit not highly performant), I didn't search
+terribly long for an alternative. 

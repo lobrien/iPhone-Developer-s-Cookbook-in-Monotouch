@@ -85,4 +85,7 @@
     <Content Include="blueFlower.png" />
     <Content Include="pinkFlower.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Mono Discussion.txt" />
+  </ItemGroup>
 </Project>
