@@ -45,9 +45,9 @@ namespace Recipe2Dot4ClippingSubviews
 				dragger.Frame = dragRect;
 				dragger.UserInteractionEnabled = true;
 				
-				dragger.WhichFlower = "Globe";
-				dragger.Image = UIImage.FromFile("globe.png");
+				var img = UIImage.FromFile("globe_xparent.png");
 				
+				dragger.Image = img;
 				//Add the subview
 				contentView.AddSubview(dragger);
 			}
@@ -79,5 +79,15 @@ namespace Recipe2Dot4ClippingSubviews
 			NSUserDefaults.StandardUserDefaults.SetString(location_xml, "locations");
 			NSUserDefaults.StandardUserDefaults.Synchronize();
 		}
+		
+		protected override void Dispose (bool disposing)
+		{
+			foreach(var views in View.Subviews)
+			{
+				views.Dispose();
+			}
+			base.Dispose (disposing);
+		}
+
 	}
 }

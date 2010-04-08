@@ -38,6 +38,7 @@ namespace Recipe2Dot4ClippingSubviews
 		public override void WillTerminate (UIApplication application)
 		{
 			myController.UpdateDefaults();
+			myController.Dispose();
 		}
 	}
 }

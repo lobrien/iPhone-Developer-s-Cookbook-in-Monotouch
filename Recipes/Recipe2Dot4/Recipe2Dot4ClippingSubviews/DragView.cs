@@ -4,6 +4,7 @@ using MonoTouch.UIKit;
 using MonoTouch.Foundation;
 using MonoTouch.CoreGraphics;
 using System.Drawing;
+using System.Runtime.InteropServices;
 
 namespace Recipe2Dot4ClippingSubviews
 {
@@ -22,8 +23,10 @@ namespace Recipe2Dot4ClippingSubviews
 			get;
 			set;
 		}
-		
 
+		IntPtr bitmapData = IntPtr.Zero;
+		SizeF imageSize;
+		
 		//Note the touch point and bring the touched view to the front
 		public override void TouchesBegan (NSSet touches, UIEvent evt)
 		{
@@ -53,7 +56,6 @@ namespace Recipe2Dot4ClippingSubviews
 		}
 		
 		
-		//Note: This is actually Recipe 2-5: Clipped Views
 		const float SIDELENGTH = 64.0f;
 		public override void Draw (RectangleF rect)
 		{
@@ -72,26 +74,83 @@ namespace Recipe2Dot4ClippingSubviews
 			this.Image.Draw(bounds);
 		}
 		
-		//Listing 2-6
 		public override bool PointInside (PointF point, UIEvent uievent)
 		{
-			var HALFSIDE = SIDELENGTH / 2.0f;
+			if(bitmapData == IntPtr.Zero)
+			{
+				bitmapData = RequestImagePixelData(Image);
+			}
 			
-			//Normalize with centered origin
-			var x = (point.X - HALFSIDE) / HALFSIDE;
-			var y = (point.Y - HALFSIDE) / HALFSIDE;
+			//Check for out of bounds
+			if(point.Y < 0 || point.X < 0 || point.Y > Image.Size.Height || point.X > Image.Size.Width)
+			{
+				return false;
+			}
+			var startByte = (int) ((point.Y * this.Image.Size.Width + point.X) * 4);
 			
-			//x^2 + Y^2 = hypotenuse length squared
-			var xSquared = x * x;
-			var ySquared = y * y;
-			var hypSquared = xSquared + ySquared;
-			//If the length is < 1, the point is within the clipped circle of this view
+			byte alpha = GetByte(startByte, this.bitmapData);
+			Console.WriteLine("Alpha value of {0}, {1} is {2}", point.X, point.Y, alpha);
 			
-			
-			if(hypSquared < 1.0)
+			if(alpha > 127)
 				return true;
 			else
 				return false;
+		}
+		
+		unsafe byte GetByte(int offset, IntPtr buffer)
+		{
+			byte* bufferAsBytes = (byte*) buffer;
+			return bufferAsBytes[offset];
+		}
+		
+		//Listing 2-7
+		protected CGBitmapContext CreateARGBBitmapContext(CGImage inImage)
+		{
+			var pixelsWide = inImage.Width;
+			var pixelsHigh = inImage.Height;
+			var bitmapBytesPerRow = pixelsWide * 4;
+			var bitmapByteCount = bitmapBytesPerRow * pixelsHigh;
+			//Note implicit colorSpace.Dispose() 
+			using(var colorSpace = CGColorSpace.CreateDeviceRGB())
+			{
+				//Allocate the bitmap and create context
+				var bitmapData = Marshal.AllocHGlobal(bitmapByteCount);
+				//I think this is unnecessary, as I believe Marshal.AllocHGlobal will throw OutOfMemoryException
+				if(bitmapData == IntPtr.Zero)
+				{
+					throw new Exception("Memory not allocated.");
+				}
+				
+				var context = new CGBitmapContext(bitmapData, pixelsWide, pixelsHigh, 8,
+				                                  bitmapBytesPerRow, colorSpace, CGImageAlphaInfo.PremultipliedFirst);
+				if(context == null)
+				{
+					throw new Exception("Context not created");
+				}
+				return context;
+			}
+		}
+		
+		//Store pixel data as an ARGB Bitmap
+		protected IntPtr RequestImagePixelData(UIImage inImage)
+		{
+			imageSize = inImage.Size;
+			CGBitmapContext ctxt = CreateARGBBitmapContext(inImage.CGImage);
+			var rect = new RectangleF(0.0f, 0.0f, imageSize.Width, imageSize.Height);
+			ctxt.DrawImage(rect, inImage.CGImage);
+			var data = ctxt.Data;
+			return data;
+			
+		}
+		
+		override protected void Dispose (bool disposing)
+		{
+			if(bitmapData != IntPtr.Zero)
+			{
+				Marshal.FreeHGlobal(bitmapData);
+				bitmapData = IntPtr.Zero;
+			}
+			base.Dispose(disposing);
 		}
 
 	}
