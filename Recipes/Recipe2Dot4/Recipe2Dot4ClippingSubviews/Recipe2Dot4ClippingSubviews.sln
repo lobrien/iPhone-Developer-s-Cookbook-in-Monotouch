@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Recipe2Dot4ClippingSubviews", "Recipe2Dot4ClippingSubviews.csproj", "{6D2A9DD2-3CF0-4711-96DC-F4D920AF1F9E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|iPhoneSimulator = Debug|iPhoneSimulator
+		Release|iPhoneSimulator = Release|iPhoneSimulator
+		Debug|iPhone = Debug|iPhone
+		Release|iPhone = Release|iPhone
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6D2A9DD2-3CF0-4711-96DC-F4D920AF1F9E}.Debug|iPhone.ActiveCfg = Debug|iPhone
+		{6D2A9DD2-3CF0-4711-96DC-F4D920AF1F9E}.Debug|iPhone.Build.0 = Debug|iPhone
+		{6D2A9DD2-3CF0-4711-96DC-F4D920AF1F9E}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
+		{6D2A9DD2-3CF0-4711-96DC-F4D920AF1F9E}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
+		{6D2A9DD2-3CF0-4711-96DC-F4D920AF1F9E}.Release|iPhone.ActiveCfg = Release|iPhone
+		{6D2A9DD2-3CF0-4711-96DC-F4D920AF1F9E}.Release|iPhone.Build.0 = Release|iPhone
+		{6D2A9DD2-3CF0-4711-96DC-F4D920AF1F9E}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
+		{6D2A9DD2-3CF0-4711-96DC-F4D920AF1F9E}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Recipe2Dot4ClippingSubviews.csproj
+	EndGlobalSection
+EndGlobal
