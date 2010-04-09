@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
+using System.Drawing;
 
 namespace Dot_DetectingMultitouch
 {
@@ -18,11 +19,11 @@ namespace Dot_DetectingMultitouch
 	// The name AppDelegate is referenced in the MainWindow.xib file.
 	public partial class AppDelegate : UIApplicationDelegate
 	{
-		// This method is invoked when the application has loaded its UI and its ready to run
 		public override bool FinishedLaunching (UIApplication app, NSDictionary options)
 		{
-			// If you have defined a view, add it here:
-			// window.AddSubview (navigationController.View);
+			MultiTouchView multiTouchView = new MultiTouchView ();
+			multiTouchView.Frame = new RectangleF(0, 0, window.Bounds.Width, window.Bounds.Height);
+			window.AddSubview(multiTouchView);
 			
 			window.MakeKeyAndVisible ();
 			
